@@ -1,20 +1,20 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { fetchPeople } from '../actions/peopleActions';
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchPeople } from '../actions/peopleActions'
+import { useNavigate } from 'react-router-dom'
 
 const FetchScreen = () => {
-  const dispatch = useDispatch();
-  const history = useHistory();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleFetchClick = () => {
-    dispatch(fetchPeople());
-    history.push('/profile');
-  };
+    dispatch(fetchPeople())
+    navigate('/profile')
+  }
 
   const handleHistoryClick = () => {
-    history.push('/history');
-  };
+    navigate('/history')
+  }
 
   return (
     <div>
@@ -22,7 +22,7 @@ const FetchScreen = () => {
       <button onClick={handleFetchClick}>Fetch</button>
       <button onClick={handleHistoryClick}>History</button>
     </div>
-  );
-};
+  )
+}
 
-export default FetchScreen;
+export default FetchScreen

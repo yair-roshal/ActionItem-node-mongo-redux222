@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { saveProfile, deleteProfile, updateProfileName } from '../actions/peopleActions';
 
 const ProfileScreen = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const profiles = useSelector((state) => state.people.profiles);
   const savedProfiles = useSelector((state) => state.people.savedProfiles);
 
@@ -32,7 +32,7 @@ const ProfileScreen = () => {
   };
 
   const handleBackClick = () => {
-    history.goBack();
+    navigate.goBack();
   };
 
   const handleNameChange = (e) => {
