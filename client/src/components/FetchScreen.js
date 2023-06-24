@@ -7,9 +7,9 @@ const FetchScreen = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleFetchClick = () => {
-    dispatch(fetchPeople())
-    navigate('/profile')
+  const handleFetchClick = async () => {
+    await dispatch(fetchPeople())
+    navigate('/profiles')
   }
 
   const handleHistoryClick = () => {
