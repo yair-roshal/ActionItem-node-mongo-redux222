@@ -32,6 +32,7 @@ const AllProfilesScreen = () => {
     )
   })
 
+  console.log('filteredProfiles', filteredProfiles)
   return (
     <div>
       <h1>All Profiles Screen</h1>
