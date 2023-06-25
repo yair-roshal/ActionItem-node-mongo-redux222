@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchPeople } from '../actions/peopleActions'
 import { useNavigate } from 'react-router-dom'
+import { Typography, Button } from '@mui/material'
 
 const FetchScreen = () => {
   const dispatch = useDispatch()
@@ -18,9 +19,15 @@ const FetchScreen = () => {
 
   return (
     <div>
-      <h1>Fetch Screen</h1>
-      <button onClick={handleFetchClick}>Fetch</button>
-      <button onClick={handleHistoryClick}>History</button>
+      <Typography variant='h1' component='h1'>
+        Fetch Screen
+      </Typography>
+      <Button  sx={{ m: 1 }} variant='contained' onClick={handleFetchClick}>
+        Fetch
+      </Button>
+      <Button  sx={{ m: 1 }} variant='contained' onClick={handleHistoryClick}>
+        History
+      </Button>
     </div>
   )
 }

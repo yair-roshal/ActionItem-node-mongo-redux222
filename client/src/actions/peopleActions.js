@@ -5,8 +5,6 @@ export const fetchPeople = () => async dispatch => {
     const response = await axios.get('https://randomuser.me/api/?results=10')
     const people = response.data.results
 
-    console.log('people', people)
-
     dispatch({ type: 'FETCH_PEOPLE_SUCCESS', payload: people })
   } catch (error) {
     dispatch({ type: 'FETCH_PEOPLE_ERROR', payload: error.message })

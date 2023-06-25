@@ -68,10 +68,10 @@ const HistoryScreen = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {filteredProfiles.map(profile => (
+              {filteredProfiles.map((profile, index) => (
                 <TableRow
                   key={profile.cell}
-                  onClick={() => handleProfileClick(profile.id)}
+                  onClick={() => handleProfileClick(index)}
                   style={{ cursor: 'pointer' }}
                 >
                   <TableCell>
