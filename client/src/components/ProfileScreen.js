@@ -41,8 +41,6 @@ const ProfileScreen = () => {
   }
 
   const handleUpdateClick = () => {
-    console.log('id,  ', id)
-    console.log(' , name', name)
     dispatch(updateProfileName(id, name))
     if (!isSaved) {
       const updatedProfile = { ...profile, name }
@@ -88,8 +86,8 @@ const ProfileScreen = () => {
                 />
               </TableCell>
               <TableCell>
-              {profile.name.title} {profile.name.first} {profile.name.last}
-               </TableCell>
+                {profile.name.title} {profile.name.first} {profile.name.last}
+              </TableCell>
               <TableCell>{profile.gender}</TableCell>
               <TableCell>{profile.location.country}</TableCell>
               <TableCell>{profile.phone}</TableCell>
@@ -102,16 +100,26 @@ const ProfileScreen = () => {
       <Box sx={{ m: 1 }}>
         <TextField type='text' value={name} onChange={handleNameChange} />
 
-        <Button sx={{ m: 1 }}  variant='contained'  onClick={handleUpdateClick}>
+        <Button sx={{ m: 1 }} variant='contained' onClick={handleUpdateClick}>
           Update
         </Button>
       </Box>
 
-      <Button sx={{ m: 1 }}  variant='contained'  onClick={handleSaveClick} disabled={isSaved}>
+      <Button
+        sx={{ m: 1 }}
+        variant='contained'
+        onClick={handleSaveClick}
+        disabled={isSaved}
+      >
         Save
       </Button>
 
-      <Button sx={{ m: 1 }}  variant='contained'  onClick={handleDeleteClick} disabled={!isSaved}>
+      <Button
+        sx={{ m: 1 }}
+        variant='contained'
+        onClick={handleDeleteClick}
+        disabled={!isSaved}
+      >
         Delete
       </Button>
 

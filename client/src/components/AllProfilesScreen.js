@@ -32,7 +32,6 @@ const AllProfilesScreen = () => {
     )
   })
 
-  console.log('filteredProfiles', filteredProfiles)
   return (
     <div>
       <h1>All Profiles Screen</h1>
@@ -70,7 +69,7 @@ const AllProfilesScreen = () => {
             </TableHead>
             <TableBody>
               {filteredProfiles.map((profile, index) => (
-                 <TableRow
+                <TableRow
                   key={profile.cell}
                   onClick={() => handleProfileClick(profile.login.uuid)}
                   style={{ cursor: 'pointer' }}
@@ -83,7 +82,8 @@ const AllProfilesScreen = () => {
                     />
                   </TableCell>
                   <TableCell>
-                  {profile.name.title} {profile.name.first} {profile.name.last}
+                    {profile.name.title} {profile.name.first}{' '}
+                    {profile.name.last}
                   </TableCell>
                   <TableCell>{profile.gender}</TableCell>
                   <TableCell>{profile.location.country}</TableCell>

@@ -7,10 +7,10 @@ const Profile = require('./models/Profile')
 const app = express()
 const PORT = process.env.PORT || 5000
 
- app.use(cors())
+app.use(cors())
 app.use(express.json())
 
- mongoose
+mongoose
   .connect(process.env.DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -22,9 +22,7 @@ app.use(express.json())
     console.error('Failed to connect to MongoDB', error)
   })
 
- app.get('/api/profiles', async (req, res) => {
-  console.log('get.profiles')
-
+app.get('/api/profiles', async (req, res) => {
   try {
     const profiles = await Profile.find()
     res.json(profiles)
@@ -34,10 +32,9 @@ app.use(express.json())
 })
 
 app.post('/api/profiles', async (req, res) => {
- 
   newProfile = {
     id: req.body.login.uuid,
-    name: req.body.name ,
+    name: req.body.name,
     email: req.body.email,
     gender: req.body.gender,
     country: req.body.location.country,
@@ -58,7 +55,6 @@ app.delete('/api/profiles/:id', async (req, res) => {
   try {
     const profile = await Profile.findOneAndDelete({ id: req.params.id })
 
-    console.log('profile111', profile)
     if (!profile) {
       return res.status(404).json({ message: 'Profile not found' })
     }
@@ -69,16 +65,13 @@ app.delete('/api/profiles/:id', async (req, res) => {
 })
 
 app.put('/api/profiles/:id', async (req, res) => {
-  
-   
   try {
     const profile = await Profile.findOneAndUpdate(
       { id: req.params.id },
       { name: req.body.name },
       { new: true }
     )
- 
-   
+
     if (!profile) {
       return res.status(404).json({ message: 'Profile not found' })
     }
@@ -88,6 +81,6 @@ app.put('/api/profiles/:id', async (req, res) => {
   }
 })
 
- app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
 })

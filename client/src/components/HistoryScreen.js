@@ -11,10 +11,8 @@ const HistoryScreen = () => {
   const [filterName, setFilterName] = useState('')
   const [filterCountry, setFilterCountry] = useState('')
 
-  const handleProfileClick = id => {
-   }
+  const handleProfileClick = id => {}
   const savedProfiles = useSelector(state => state.savedProfiles)
-console.log('savedProfiles', savedProfiles)
   return (
     <div>
       <h1>History Screen</h1>
