@@ -28,10 +28,9 @@ const ProfileScreen = () => {
   const savedProfiles = useSelector(state => state.savedProfiles)
 
   const [name, setName] = useState('')
- 
-   const profile = profiles.find((p) => p.login.uuid === id);
-  const isSaved = savedProfiles.some((p) => p.login.uuid === id);
 
+  const profile = profiles.find(p => p.login.uuid === id)
+  const isSaved = savedProfiles.some(p => p.login.uuid === id)
 
   const handleSaveClick = () => {
     dispatch(saveProfile(profile))
@@ -42,6 +41,8 @@ const ProfileScreen = () => {
   }
 
   const handleUpdateClick = () => {
+    console.log('id,  ', id)
+    console.log(' , name', name)
     dispatch(updateProfileName(id, name))
     if (!isSaved) {
       const updatedProfile = { ...profile, name }
@@ -78,9 +79,7 @@ const ProfileScreen = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow
-              key={profile.cell}
-             >
+            <TableRow key={profile.cell}>
               <TableCell>
                 <img
                   src={profile.picture.thumbnail}
@@ -90,6 +89,7 @@ const ProfileScreen = () => {
               </TableCell>
               <TableCell>
                 {profile.name.title} {profile.name.first} {profile.name.last}
+                {/* {profile.name.title} {profile.name.first} {profile.name.last} */}
               </TableCell>
               <TableCell>{profile.gender}</TableCell>
               <TableCell>{profile.location.country}</TableCell>
@@ -103,30 +103,20 @@ const ProfileScreen = () => {
       <Box sx={{ m: 1 }}>
         <TextField type='text' value={name} onChange={handleNameChange} />
 
-        <Button sx={{ m: 1 }} variant='contained' onClick={handleUpdateClick}>
+        <Button sx={{ m: 1 }} onClick={handleUpdateClick}>
           Update
         </Button>
       </Box>
 
-      <Button
-        sx={{ m: 1 }}
-        variant='contained'
-        onClick={handleSaveClick}
-        disabled={isSaved}
-      >
+      <Button sx={{ m: 1 }} onClick={handleSaveClick} disabled={isSaved}>
         Save
       </Button>
 
-      <Button
-        sx={{ m: 1 }}
-        variant='contained'
-        onClick={handleDeleteClick}
-        disabled={!isSaved}
-      >
+      <Button sx={{ m: 1 }} onClick={handleDeleteClick} disabled={!isSaved}>
         Delete
       </Button>
 
-      <Button sx={{ m: 1 }} variant='contained' onClick={handleBackClick}>
+      <Button sx={{ m: 1 }} onClick={handleBackClick}>
         Back
       </Button>
     </div>
