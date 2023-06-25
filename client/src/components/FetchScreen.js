@@ -19,13 +19,11 @@ const FetchScreen = () => {
 
   return (
     <div>
-      <Typography variant='h1' component='h1'>
-        Fetch Screen
-      </Typography>
-      <Button  sx={{ m: 1 }} variant='contained' onClick={handleFetchClick}>
+      <h1>Fetch Screen</h1>
+      <Button sx={{ m: 1 }} variant='contained' onClick={handleFetchClick}>
         Fetch
       </Button>
-      <Button  sx={{ m: 1 }} variant='contained' onClick={handleHistoryClick}>
+      <Button sx={{ m: 1 }} variant='contained' onClick={handleHistoryClick}>
         History
       </Button>
     </div>

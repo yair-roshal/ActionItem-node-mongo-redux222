@@ -16,7 +16,8 @@ import {
   TableRow,
   Paper,
   TextField,
-  Button,Box
+  Button,
+  Box,
 } from '@mui/material'
 
 const ProfileScreen = () => {
@@ -27,9 +28,10 @@ const ProfileScreen = () => {
   const savedProfiles = useSelector(state => state.savedProfiles)
 
   const [name, setName] = useState('')
+ 
+   const profile = profiles.find((p) => p.login.uuid === id);
+  const isSaved = savedProfiles.some((p) => p.login.uuid === id);
 
-  const profile = profiles[id]
-  const isSaved = savedProfiles[id]
 
   const handleSaveClick = () => {
     dispatch(saveProfile(profile))
@@ -78,9 +80,7 @@ const ProfileScreen = () => {
           <TableBody>
             <TableRow
               key={profile.cell}
-              onClick={() => handleProfileClick(index)}
-              style={{ cursor: 'pointer' }}
-            >
+             >
               <TableCell>
                 <img
                   src={profile.picture.thumbnail}
@@ -100,7 +100,7 @@ const ProfileScreen = () => {
         </Table>
       </TableContainer>
 
-      <Box  sx={{ m: 1 }} >
+      <Box sx={{ m: 1 }}>
         <TextField type='text' value={name} onChange={handleNameChange} />
 
         <Button sx={{ m: 1 }} variant='contained' onClick={handleUpdateClick}>
@@ -108,11 +108,17 @@ const ProfileScreen = () => {
         </Button>
       </Box>
 
-      <Button sx={{ m: 1 }} variant='contained' onClick={handleSaveClick} disabled={isSaved}>
+      <Button
+        sx={{ m: 1 }}
+        variant='contained'
+        onClick={handleSaveClick}
+        disabled={isSaved}
+      >
         Save
       </Button>
 
-      <Button sx={{ m: 1 }} 
+      <Button
+        sx={{ m: 1 }}
         variant='contained'
         onClick={handleDeleteClick}
         disabled={!isSaved}
@@ -120,7 +126,7 @@ const ProfileScreen = () => {
         Delete
       </Button>
 
-      <Button  sx={{ m: 1 }} variant='contained' onClick={handleBackClick}>
+      <Button sx={{ m: 1 }} variant='contained' onClick={handleBackClick}>
         Back
       </Button>
     </div>

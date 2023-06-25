@@ -12,7 +12,7 @@ import {
   TextField,
 } from '@mui/material'
 
-const HistoryScreen = () => {
+const AllProfilesScreen = () => {
   const navigate = useNavigate()
   const profiles = useSelector(state => state.profiles)
   const [filterName, setFilterName] = useState('')
@@ -69,9 +69,9 @@ const HistoryScreen = () => {
             </TableHead>
             <TableBody>
               {filteredProfiles.map((profile, index) => (
-                <TableRow
+                 <TableRow
                   key={profile.cell}
-                  onClick={() => handleProfileClick(index)}
+                  onClick={() => handleProfileClick(profile.login.uuid)}
                   style={{ cursor: 'pointer' }}
                 >
                   <TableCell>
@@ -101,4 +101,4 @@ const HistoryScreen = () => {
   )
 }
 
-export default HistoryScreen
+export default AllProfilesScreen

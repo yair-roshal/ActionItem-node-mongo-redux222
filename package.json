@@ -6,6 +6,7 @@
     "scripts": {
         "client": "npm start --prefix client",
         "server": "npm start --prefix server",
+        "server2": "npm run dev --prefix server",
         "start_npm": "concurrently \"npm run client\" \"npm run server\" "
     },
     "browserslist": {
