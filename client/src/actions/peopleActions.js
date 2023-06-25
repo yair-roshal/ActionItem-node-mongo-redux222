@@ -49,8 +49,7 @@ export const deleteProfile = id => async dispatch => {
 
 export const updateProfileName = (id, name) => async dispatch => {
   try {
-    // {profile.name.title} {profile.name.first} {profile.name.last}
-
+ 
     
     await axios.put(URL + `/api/profiles/${id}`, { name })
     dispatch({ type: 'UPDATE_PROFILE_NAME_SUCCESS', payload: { id, name } })

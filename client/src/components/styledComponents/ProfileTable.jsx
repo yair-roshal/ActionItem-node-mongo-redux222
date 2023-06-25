@@ -39,9 +39,7 @@ export const ProfileTable = ({ profiles, handleProfileClick }) => {
                   style={{ width: 50, height: 50 }}
                 />
               </TableCell>
-              <TableCell>
-                {profile.name.title} {profile.name.first} {profile.name.last}
-              </TableCell>
+              <TableCell>{profile.name}</TableCell>
               <TableCell>{profile.gender}</TableCell>
               <TableCell>{profile.location.country}</TableCell>
               <TableCell>{profile.phone}</TableCell>
@@ -53,4 +51,3 @@ export const ProfileTable = ({ profiles, handleProfileClick }) => {
     </TableContainer>
   )
 }
-

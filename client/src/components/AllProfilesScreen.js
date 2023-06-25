@@ -23,7 +23,7 @@ const AllProfilesScreen = () => {
   }
 
   const filteredProfiles = profiles.filter(profile => {
-    const fullName = `${profile.name.title} ${profile.name.first} ${profile.name.last}`
+    const fullName = `${profile.name}`
     return (
       fullName.toLowerCase().includes(filterName.toLowerCase()) &&
       profile.location.country
@@ -83,8 +83,7 @@ const AllProfilesScreen = () => {
                     />
                   </TableCell>
                   <TableCell>
-                    {profile.name.title} {profile.name.first}{' '}
-                    {profile.name.last}
+                  {profile.name.title} {profile.name.first} {profile.name.last}
                   </TableCell>
                   <TableCell>{profile.gender}</TableCell>
                   <TableCell>{profile.location.country}</TableCell>

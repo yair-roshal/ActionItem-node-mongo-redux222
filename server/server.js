@@ -37,7 +37,7 @@ app.post('/api/profiles', async (req, res) => {
  
   newProfile = {
     id: req.body.login.uuid,
-    name: req.body.name.title + req.body.name.first + req.body.name.last,
+    name: req.body.name ,
     email: req.body.email,
     gender: req.body.gender,
     country: req.body.location.country,
